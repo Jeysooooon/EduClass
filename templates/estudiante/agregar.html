@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm max-w-md mx-auto">
+    <div class="card-header bg-primary text-white"><h4>Agregar Estudiante</h4></div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3"><label>Nombre</label><input type="text" name="EstNombre" class="form-control" required></div>
+            <div class="mb-3"><label>Apellido</label><input type="text" name="EstApellido" class="form-control" required></div>
+            <div class="mb-3"><label>DNI</label><input type="text" name="EstDNI" class="form-control" required></div>
+            <div class="mb-3"><label>Correo</label><input type="email" name="EstCorreo" class="form-control"></div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ url_for('estudiante_index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="alert alert-danger shadow-sm">
+    <h4>¿Estás seguro de eliminar a {{ docente.DocNombre }} {{ docente.DocApellido }}?</h4>
+    <p>Esta acción no se puede deshacer.</p>
+    <form method="POST">
+        <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+        <a href="{{ url_for('docente_index') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
