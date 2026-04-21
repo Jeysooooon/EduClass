@@ -1,10 +1,59 @@
 {% extends 'base.html' %}
+{% block title %}Inicio | EduClass{% endblock %}
 {% block content %}
-<div class="jumbotron text-center mt-5">
-    <h1 class="display-4">Bienvenido a EduClass</h1>
-    <p class="lead">Sistema de Gestión Académica Profesional</p>
-    <hr class="my-4">
-    <a class="btn btn-primary btn-lg m-2" href="{{ url_for('estudiante_index') }}" role="button">Gestionar Estudiantes</a>
-    <a class="btn btn-success btn-lg m-2" href="{{ url_for('docente_index') }}" role="button">Gestionar Docentes</a>
-</div>
+<section class="row g-4 align-items-stretch">
+    <div class="col-lg-7">
+        <div class="panel-card h-100">
+            <span class="panel-chip">Explora, aprende y crece con nosotros.</span>
+            <h2 class="section-title mt-3">Bienvenido a tu Espacio de Aprendizaje</h2>
+            <p class="section-copy">
+            Un entorno diseñado para potenciar la excelencia académica. Aquí encontrarás todas 
+            las herramientas necesarias para gestionar docentes y estudiantes de manera eficiente.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a class="btn btn-brand" href="{{ url_for('estudiante.index') }}">
+                    <i class="bi bi-people-fill"></i> Gestionar estudiantes
+                </a>
+                <a class="btn btn-outline-brand" href="{{ url_for('docente.index') }}">
+                    <i class="bi bi-person-workspace"></i> Gestionar docentes
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="panel-card h-100">
+            <h3 class="section-title">Lineamientos</h3>
+            <div class="feature-list mt-3">
+                <div class="feature-item">
+                    <i class="bi bi-diagram-3"></i>
+                    <div>
+                        <strong>Blueprints</strong>
+                        <p>Separacion por modulos para estudiantes y docentes.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-palette"></i>
+                    <div>
+                        <strong>Bootstrap + CSS</strong>
+                        <p>Base visual moderna con hoja de estilos propia.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-table"></i>
+                    <div>
+                        <strong>DataTables e iconos</strong>
+                        <p>Tablas con busqueda, paginacion y acciones visuales.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-database-check"></i>
+                    <div>
+                        <strong>ORM</strong>
+                        <p>La entidad Estudiante usa SQLAlchemy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

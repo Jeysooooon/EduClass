@@ -1,23 +1,52 @@
 {% extends 'base.html' %}
+{% block title %}Docentes | EduClass{% endblock %}
 {% block content %}
-<h2>Listado de Docentes</h2>
-<a href="{{ url_for('docente_agregar') }}" class="btn btn-success mb-3">Agregar Docente</a>
-<table class="table table-striped table-bordered shadow-sm bg-white">
-    <thead class="table-dark">
-        <tr>
-            <th>Código</th><th>Nombre</th><th>Apellido</th><th>Especialidad</th><th>Teléfono</th><th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for d in lista_docentes %}
-        <tr>
-            <td>{{ d.DocCodigo }}</td><td>{{ d.DocNombre }}</td><td>{{ d.DocApellido }}</td><td>{{ d.DocEspecialidad }}</td><td>{{ d.DocTelefono }}</td>
-            <td>
-                <a href="{{ url_for('docente_editar', codigo=d.DocCodigo) }}" class="btn btn-sm btn-warning">Editar</a>
-                <a href="{{ url_for('docente_eliminar', codigo=d.DocCodigo) }}" class="btn btn-sm btn-danger">Eliminar</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<section class="panel-card">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+        <div>
+            <p class="panel-chip">Modulo Docentes</p>
+            <h2 class="section-title mb-1">Listado de docentes</h2>
+            <p class="section-copy mb-0">Espacio dedicado a la gestión y consulta del personal académico de EduClass. Aquí podrá administrar la información profesional y datos de contacto de los especialistas encargados de guiar nuestra comunidad educativa.</p>
+        </div>
+        <a href="{{ url_for('docente.agregar') }}" class="btn btn-brand">
+            <i class="bi bi-person-plus-fill"></i> Agregar docente
+        </a>
+    </div>
+
+    <div class="table-shell">
+        <table class="table table-hover align-middle datatable">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Especialidad</th>
+                    <th>Telefono</th>
+                    <th data-sortable="false">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in lista_docentes %}
+                <tr>
+                    <td>{{ d.DocCodigo }}</td>
+                    <td>{{ d.DocNombre }}</td>
+                    <td>{{ d.DocApellido }}</td>
+                    <td>{{ d.DocEspecialidad }}</td>
+                    <td>{{ d.DocTelefono or '-' }}</td>
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="{{ url_for('docente.editar', codigo=d.DocCodigo) }}" class="btn btn-sm btn-warning-soft">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                            <a href="{{ url_for('docente.eliminar', codigo=d.DocCodigo) }}" class="btn btn-sm btn-danger-soft">
+                                <i class="bi bi-trash3"></i> Eliminar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
 {% endblock %}
