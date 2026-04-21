@@ -23,7 +23,6 @@ def get_db_connection():
         port=DB_PORT
     )
 
-# RUTA PRINCIPAL (DASHBOARD)
 @app.route("/")
 def index():
     return render_template('index.html')
